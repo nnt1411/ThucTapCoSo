@@ -1,0 +1,7 @@
+---
+- name: Ping hosts
+  hosts: ubuntu
+  
+  tasks:
+    - name: Ping
+      ping:

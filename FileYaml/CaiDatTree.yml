@@ -1,0 +1,10 @@
+---
+- hosts: ubuntu
+  tasks:
+    - name: Install tree
+      apt:
+        name: tree
+        state: present
+        update_cache: yes
+      become: yes
+      become_method: sudo  

@@ -1,0 +1,9 @@
+---
+- hosts: ubuntu
+  tasks:
+    - name: nettools
+      apt:
+        name: net-tools
+        state: absent
+        update_cache: yes
+      become: yes 

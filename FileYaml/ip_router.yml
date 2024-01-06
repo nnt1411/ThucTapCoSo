@@ -1,0 +1,10 @@
+---
+- hosts: router
+  gather_facts: no
+  tasks:
+  - name: Cau hinh IP cho interface G0/1
+    ios_config:
+      lines:
+        - interface GigabitEthernet0/1
+        - ip address 192.168.122.150 255.255.255.0
+        - no shutdown

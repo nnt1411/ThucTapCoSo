@@ -1,0 +1,12 @@
+---
+- hosts: router
+
+  tasks:
+    - name: chay lenh show version  
+      ios_command:
+        commands: show version
+      register: output
+
+    - name: Hien thi ket qua 
+      debug:
+        var: output.stdout_lines

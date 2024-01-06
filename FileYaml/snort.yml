@@ -1,0 +1,13 @@
+---
+- hosts: ubuntu
+  tasks:
+    - name: Update apt cache
+      become: yes
+      apt:
+        update_cache: yes
+
+    - name: Install Snort 
+      become: yes
+      apt:
+        name: snort
+        state: present
