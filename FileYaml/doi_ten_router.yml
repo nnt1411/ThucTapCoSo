@@ -1,0 +1,12 @@
+---
+- hosts: r1
+  gather_facts: no
+
+  tasks:
+    - name: doi ten
+      ios_config:
+        lines: 
+          - conf t
+          - hostname thanh
+
+    

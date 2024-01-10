@@ -1,0 +1,40 @@
+---
+- hosts: r1
+  gather_facts: no
+  tasks:
+    - name: cau hinh g0/1
+      ios_config:
+        lines:
+          - int g0/1 
+          - ip add 192.168.5.1 255.255.255.0
+          - no shut
+    - name: cau hinh g0/2
+      ios_config:
+        lines:
+          - int g0/2
+          - ip add 192.168.1.2 255.255.255.0
+          - no shut 
+    - name: static route 
+      ios_config:
+        lines:
+          - ip route 192.168.2.0 255.255.255.0 192.168.5.2      
+
+- hosts: r2
+  gather_facts: no
+  tasks:
+    - name: cau hinh g0/1
+      ios_config:
+        lines:
+          - int g0/1 
+          - ip add 192.168.5.2 255.255.255.0
+          - no shut
+    - name: cau hinh g0/2
+      ios_config:
+        lines:
+          - int g0/2
+          - ip add 192.168.2.2 255.255.255.0
+          - no shut 
+    - name: static route 
+      ios_config:
+        lines:
+          - ip route 192.168.1.0 255.255.255.0 192.168.5.1    
